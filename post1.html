@@ -1,0 +1,203 @@
+<html lang="en"><head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Cross sections</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="libs/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Theme CSS -->
+    <link href="libs/css/clean-blog.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="libs/css/customstyle.css" rel="stylesheet" type="text/css">
+    <link href="libs/css/font-awesome.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="index.html">Start Bootstrap</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="about.html">About</a>
+                    </li>
+                    <li>
+                        <a href="post.html">Sample Post</a>
+                    </li>
+                    <li>
+                        <a href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header class="intro-header" style="background-image: url('img/cs_main2.jpg'); background-repeat: repeat-x ;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1>Setup the Code</h1>
+                        <h2 class="subheading">Step by step manual how to setup and run the code.</h2>
+                    <!--    <span class="meta">Posted by <a href="#">Start Bootstrap</a> on August 24, 2014</span> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Post Content -->
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <p>This code contain a lot of branches and setups. Even more, since the analysis code was written by a lot of people,
+                      there is a bit mess with what should be set do to run some regular or special job. From my side I've added a few setups,
+                      which make my life easier but now it's probaly even more hard to get used for the next code-user. But I will try to
+                      explain here all possible setups that I learned and which I've added. </p>
+
+                    <h2 class="section-heading">General (must have setup)</h2>
+                    <p><strong>  1. </strong> The <span class="color-blue">"rootlogon.C"</span> file should be placed at the home  <span class="color-blue" >afs</span> folder:
+                    <blockquote> /afs/..../usename/ </blockquote>
+                    will setup  "libGutLib" and some other variables which are usefull during the GutCode compilations. You may download it
+                    <a class="color-downloads" href="download/rootlogon.C" download> here</a>. </p>
+                    <hr>
+                    <p><strong>  2. </strong> Set the path to your main folder in a file which is running when you login into a terminal.
+                    In my case it is <span class="color-blue">.zshrc</span>, but it also can be <span class="color-blue">.profile, .bashrc</span>.</p>
+                    <p>You may download <a class="color-downloads" href="download/.zshrc" download> here</a> the <span class="color-blue"> .zshrc </span> example and use it to update your own setup file.
+                    This file should be placed at the same place/level as </strong> the <span class="color-blue">"rootlogon.C"</span> file.</p>
+                    <hr>
+                    <h2 class="section-heading">Normal regime running </h2>
+                    <p>
+                    Here I will explain what should be set (by default it will be set when you will load **this** code)
+                    to make standard run without hard setups:
+                    <p><strong>  1. </strong>  First check your work-folder:
+                    <blockquote>  echo $GUTANADIR </blockquote>
+                    <p><strong>  2. </strong>  Creates mini root files which contain MC and DATA with all possible histograms:
+                    <blockquote>  sh $GUTANADIR/run_all_years.sh </blockquote>
+                    <p><strong>  3. </strong>  Next step will create separate folder for the each year and extract
+                      histograms in the text format:
+                    <blockquote>  sh $GUTANADIR/finilazer_dimuon.sh </blockquote>
+                    <p><strong>  4. </strong>  Go to the created folder, set and run the plotting script, sth. like this:
+                    <blockquote>  emacs run_8_plotmaker.C <br> root -l run_8_plotmaker.C </blockquote>
+                    </p>
+                    <p>And here we are, you should get a lot of plots which are produced by run_8_plotmaker.C file with additional libraries.
+                    There is the low for file names:  run_all_dimuon.sh, finilazer_dimuon.sh etc.
+                    in case one would like to try  secvtx analysis scripe names will be:  <blockquote>run_all_secvtx.sh <br> finilazer_secvtx.sh</blockquote></p>
+                    <p>but the same name for </p><blockquote>run_8_plotmaker.C </blockquote></p>
+
+                    <h2 class="section-heading">Special addons </h2>
+                    <br>
+                    <blockquote>
+                    $GUTANADIR/autoscripts/set_srcinc_with_subsv.sh
+                    $GUTANADIR/autoscripts/set_srcinc_without_subsets.sh
+                    </blockquote>
+
+                    This part will show addittional part about developing the dimuon dataset collections.
+                    To make it possible without breakage old way running this script
+                    was developed. This includes additional histograms set, should be used at the very beginning stage
+                    + recompile (which it will do automaticaly, just check for the error messages):
+                    <span class="color-blue"> set_srcinc_with_subsv.sh,   set_srcinc_without_subsets.sh</span>
+                    while first script will setup all new histograms which are needed for the dimuon subset analysis.
+                    second script will get back all changes and make the analysis at the original point.
+
+                    <h2 class="section-heading">Script description </h2>
+                    <p><span> 1. Lets start from on of the the <span class="color-blue"> "run_all_*.sh"</span> scripts: </span><p>
+                    <blockquote> sh $GUTANADIR/run_all_dimuon.sh</blockquote>
+                    <p> The intermediate step of "finilazer_dimuon.sh" script. Сreates working "next-to-mini" ntuples from the mini ntuples
+                      ("run_all_years.sh").
+                      It will create some "mini_HeraII_05e_Data_MC_Dimuon_Finalversion_dimuon_05e_dbothistos" folder.
+                      This folder contain "next-to-mini" ntuples with all included process for MC & Data. <p>
+
+                      and more to do...
+
+<br>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <ul class="list-inline text-center">
+                        <li>
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <p class="copyright text-muted">Copyright © nastefan </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="libs/js/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="libs/js/bootstrap.min.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="libs/js/jqBootstrapValidation.js"></script>
+    <script src="libs/js/contact_me.js"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="libs/js/clean-blog.min.js"></script>
+
+
+
+
+</body></html>

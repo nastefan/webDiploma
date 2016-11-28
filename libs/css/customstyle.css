@@ -1,0 +1,33 @@
+/* text: */
+.color-blue {
+  color:#537E8C;
+}
+
+.color-downloads {
+  color:#D050FF;
+}
+
+blockquote {
+  /*margin-top: 5px;*/
+}
+
+.ital {
+  font-style: italic;
+}
+
+.container, body, p {
+  text-align: justify;
+}
+
+.theline {
+  height: 2px;
+  border-top: 2px #537E8C;
+}
+
+hr {
+  width: 98%;
+  border: 2px solid #eee;
+}
+
+
+/* images: */
