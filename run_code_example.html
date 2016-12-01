@@ -1,0 +1,216 @@
+<html lang="en"><head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Cross sections</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="libs/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Theme CSS -->
+    <link href="libs/css/clean-blog.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="libs/css/customstyle.css" rel="stylesheet" type="text/css">
+    <link href="libs/css/font-awesome.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="index.html">Start Bootstrap</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="run_analysis.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="about.html">About</a>
+                    </li>
+                    <li>
+                        <a href="post.html">Sample Post</a>
+                    </li>
+                    <li>
+                        <a href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header class="intro-header" style="background-image: url('img/cs_main2.jpg'); background-repeat: repeat-x ;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1>Run example</h1>
+                        <h2 class="subheading">Step by step run example with CS.</h2>
+                    <!--    <span class="meta">Posted by <a href="#">Start Bootstrap</a> on August 24, 2014</span> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Post Content -->
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <p>This page will show step by step procedure of the differential cross section plots production.
+                    The first point of the procedure is input as root miniNTuples from Danny. See miniNTuple reproduction here. (to all later).
+                    The last point is completely ready cross section plots.
+                    </p>
+
+                    <h2 class="section-heading"> General procedure </h2>
+                    <p><strong>  1. </strong> Work with miniNTuples, use cuts, all GutCode procedures, and get nextTominiNTuples, which will be stored
+                      inside $GUTANADIR/data and $GUTANADIR/mc. </p>
+                    <blockquote>
+                      cd $GUTANADIR/autoscripts/ <br>
+                      sh run_all_years.sh
+                    </blockquote>
+
+                    <p><strong>  2. </strong> Combined script which creates <br> "mini_HeraII_0307p_Data_MC_xsec2_Finalversion_dbothistos_dimuon" folder at the
+                      $GUTANADIR, extract all needed histograms from /data and /mc and crete  4 folders :"mini_HeraII_0*_Data_MC_Dimuon_Finalversion_XsectionTotal2_*_dbothistos".
+                      In each folder root files with histograms are stored. Then from 4 folders those files are moved into "mini_HeraII_0307p_Data_MC_xsec2_Finalversion_dbothistos_dimuon".
+                      In this folder root files are merged. Next part - extraction txt files from the merged root files. From the text files there is the possbility to produce
+                      cross section plots with using the script "Crosssection_Extraction.C".
+                    </p>
+                    <blockquote>
+                      cd $GUTANADIR/autoscripts/ <br>
+                      sh finilazer_xsec2.sh
+                    </blockquote>
+
+                    <h2 class="section-heading"> More detailed description </h2>
+
+                    <p><strong> "run_all_years.sh" </strong> Use the $GUTANADIR/analyse script, and 4 cards from $GUTCODEDIR/analysis/cards/templates/
+                    </p>
+                    <blockquote>
+                      dbot_general_gmuon_dimuon_analyse_12_HeraII_Switch_0304p.cards <br>
+                      dbot_general_gmuon_dimuon_analyse_12_HeraII_Switch_05e.cards <br>
+                      dbot_general_gmuon_dimuon_analyse_12_HeraII_Switch_06e.cards <br>
+                      dbot_general_gmuon_dimuon_analyse_12_HeraII_Switch_0607p.cards <br>
+                    </blockquote>
+                    <p> And "mini_HeraII_0*_Data_MC_Dimuon_Finalversion" will be core name for the output root files.
+                    Cards contain set of all cuts. $GUTCODEDIR/libraries/GutLib/src/ contain all C++ classes to run and work
+                    with miniNTuples. </p>
+
+                    <p><strong> "finilazer_xsec2.sh" </strong> is a script which contain few steering scripts: </p>
+                    <blockquote>
+                      $GUTANADIR/Extraction_Scripts/run_all_xsection2.sh <br>
+                      $GUTANADIR/autoscripts/move_all_xsec2.sh <br>
+                      $GUTANADIR/mini_HeraII_0307p_Data_MC_xsec2_Finalversion_dbothistos_dimuon/mergefiles.sh <br>
+                      $GUTANADIR/mini_HeraII_0307p_Data_MC_xsec2_Finalversion_dbothistos_dimuon/Cross_Sectionscript.sh <br>
+                    </blockquote>
+                    <p><strong> "run_all_xsection2.sh" </strong> is a script which contain few steering scripts: </p>
+                    <blockquote>
+                      ...<br>
+                      sh getdanny_XsectionTotal2_05e.sh mini_HeraII_05e_Data_MC_Dimuon_Finalversion<br>
+                      sh getdanny_XsectionTotal2_06e.sh mini_HeraII_06e_Data_MC_Dimuon_Finalversion<br>
+                      ...<br>
+                    </blockquote>
+                    <p> creates the folder: <br> mini_HeraII_0304p_Data_MC_Dimuon_Finalversion_XsectionTotal2_0304p_dbothistos,
+                      with 29 root files.  There will be 3 other folders for the rest 3 year set. </p>
+                    <p><strong> "move_all_xsec2.sh" </strong> move all root files from such folder:</p>
+                    <blockquote>
+                      mini_HeraII_0304p_Data_MC_Dimuon_Finalversion_XsectionTotal2_0304p_dbothistos <br>
+                    </blockquote>
+                    <p> into the combined folder </p>
+                    <blockquote>
+                      mini_HeraII_0307p_Data_MC_xsec2_Finalversion_dbothistos_dimuon
+                    </blockquote>
+                    <p> plus copy needed .sh and .C files there. </p>
+                    <p><strong> "mergefiles.sh" </strong> merge root files from the 4 time periods inside the</p>
+                      <blockquote>
+                        mini_HeraII_0307p_Data_MC_xsec2_Finalversion_dbothistos_dimuon
+                      </blockquote>
+                    <p><strong> "Cross_Sectionscript.sh" </strong> new set of text files, from the root files inside the folder showed above.
+                      Creates text files : h*, uMC_*, recMC_*, true_* , uData_*.  (h* - 120 files, the rest - 120 files as well). </p>
+
+                    <p><strong> "Plot_Cross_Sections.C" </strong> Produce CS differential distributions.</p>
+
+                    <br>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <ul class="list-inline text-center">
+                        <li>
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <p class="copyright text-muted">Copyright © nastefan </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="libs/js/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="libs/js/bootstrap.min.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="libs/js/jqBootstrapValidation.js"></script>
+    <script src="libs/js/contact_me.js"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="libs/js/clean-blog.min.js"></script>
+
+
+
+
+</body></html>
