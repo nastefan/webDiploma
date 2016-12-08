@@ -29,5 +29,8 @@ hr {
   border: 2px solid #eee;
 }
 
+p {
+  text-indent: 25px;
+}
 
 /* images: */

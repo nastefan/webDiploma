@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Notes by Nazar Stefaniuk</title>
+    <title>Cross sections</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="libs/css/bootstrap.min.css" rel="stylesheet">
@@ -15,6 +15,7 @@
     <link href="libs/css/clean-blog.min.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
+    <link href="libs/css/customstyle.css" rel="stylesheet" type="text/css">
     <link href="libs/css/font-awesome.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
@@ -24,7 +25,7 @@
 <body>
 
     <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-custom navbar-fixed-top is-fixed">
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header page-scroll">
@@ -59,115 +60,60 @@
 
     <!-- Page Header -->
     <!-- Set your background image for this header on the line below. -->
-    <header class="intro-header" style="background-image: url('img/home-bg.jpg')">
+    <header class="intro-header" style="background-image: url('img/cs_main2.jpg'); background-repeat: repeat-x ;">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <div class="site-heading">
-                        <h1>My Notes</h1>
-                        <hr class="small">
-                        <span class="subheading">A Notes-Blog by Nazar Stefaniuk</span>
+                    <div class="post-heading">
+                        <h1>Run example</h1>
+                        <h2 class="subheading">Step by step run example with CS.</h2>
+                    <!--    <span class="meta">Posted by <a href="#">Start Bootstrap</a> on August 24, 2014</span> -->
                     </div>
                 </div>
             </div>
         </div>
     </header>
-    <!-- Main Content -->
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="post-preview">
-                    <a href="post1.html" target="">
-                        <h2 class="post-title">
-                            Setup the code
-                        </h2>
-                        <h3 class="post-subtitle">
-                            Step by step manual how to setup and run the code.
-                        </h3>
-                    </a>
-                   <!--<p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on September 24, 2014</p> -->
-                </div>
 
-                <div class="post-preview">
-                    <a href="useful_commands.html" target="">
-                        <h2 class="post-title">
-                            Useful commands
-                        </h2>
-                        <h3 class="post-subtitle">
-                            Contain some useful commands which are not really obvious.
-                        </h3>
-                    </a>
-                   <!--<p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on September 24, 2014</p> -->
-                </div>
+    <!-- Post Content -->
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <p>Here I put some useful commans which will help in the analysis. </p>
 
-                <div class="post-preview">
-                    <a href="run_code_example.html" target="">
-                        <h2 class="post-title">
-                            Run example
-                        </h2>
-                        <h3 class="post-subtitle">
-                            Step by step run example with CS.
-                        </h3>
-                    </a>
-                   <!--<p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on September 24, 2014</p> -->
-                </div>
+                    <h2 class="section-heading"> (Re) Compilation </h2>
+                    <blockquote>
+                      cd $GUTCODEDIR/scripts-analysis <br>
+                      ./compile <br>
+                      ./recompile <br>
+                      cat $GUTCODEDIR/log/latest.txt | grep error <br>
+                      cat $GUTCODEDIR/log/latest.txt | grep ERROR <br>							
+                    </blockquote>
+                    <p>Since compilation procedure contail a lot of log information, two last commands above will help to controll an errors. </p>
 
-                <div class="post-preview">
-                    <a href="post2.html">
-                        <h2 class="post-title" target="">
-                            Cross sections - production procedure
-                        </h2>
-                        <h3 class="post-subtitle">
-                            Cross section calculation. Every single step.
-                        </h3>
-                    </a>
-                   <!--<p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on September 24, 2014</p> -->
-                </div>
+                    <h2 class="section-heading"> Link the code to the miniNTuple files </h2>
+                    <blockquote>
+                      cd $GUTCODEDIR/datadir<br>
+                      sh createdata_links.sh <br>						
+                    </blockquote>
+                    <p>This script will create correct links to make all machinery run in the correct way. </p>
 
-                <div class="post-preview">
-                    <a href="post2.html">
-                        <h2 class="post-title" target="">
-                            Cross sections repetition vs Danny
-                        </h2>
-                        <h3 class="post-subtitle">
-                            Comparison side by side.
-                        </h3>
-                    </a>
-                   <!--<p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on September 24, 2014</p> -->
-                </div>
+                    <h2 class="section-heading"> Clean all root files from the anadir </h2>
+                    <blockquote>
+                      cd $GUTANADIR/<br>
+                      sh cleanall.sh <br>						
+                    </blockquote>
+                    <p>This script will delete all root files from the anadir folder, and from /data and /mc folders. 
+		    <span style="color:red;"> Warning!</span> Use this script with careful. This will remove your current nextTominiRoot files, so
+	 	    you will need to run the script "run_all_years.sh" again. But all folders which are produced by the "finilazer_dimuon.sh" script, 
+			for example, will be untached. </p>
 
-                <div class="post-preview">
-                    <a href="post2.html">
-                        <h2 class="post-title" target="">
-                            Cross sections + sec. vtx.
-                        </h2>
-                        <h3 class="post-subtitle">
-                            Secondary vertices included. Cross section calculation.
-                        </h3>
-                    </a>
-                   <!--<p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on September 24, 2014</p> -->
+                    <br>
+                    <br>
                 </div>
-                <div class="post-preview">
-                    <a href="thoughts.html">
-                        <h2 class="post-title" target="">
-                            Some thought
-                        </h2>
-                        <h3 class="post-subtitle">
-                            About everything =)
-                        </h3>
-                    </a>
-                   <!--<p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on September 24, 2014</p> -->
-                </div>
-                <hr>
-                <!-- Pager -->
-                <ul class="pager">
-                    <li class="next">
-                        <a href="#">Older Posts →</a>
-                    </li>
-                </ul>
             </div>
         </div>
-    </div>
+    </article>
 
     <hr>
 
@@ -207,7 +153,6 @@
             </div>
         </div>
     </footer>
-
 
     <!-- jQuery -->
     <script src="libs/js/jquery.min.js"></script>
