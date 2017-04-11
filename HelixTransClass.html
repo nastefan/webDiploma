@@ -1,0 +1,158 @@
+<html lang="en"><head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Open DATA project</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="libs/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Theme CSS -->
+    <link href="libs/css/clean-blog.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="libs/css/customstyle.css" rel="stylesheet" type="text/css">
+    <link href="libs/css/font-awesome.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    Menu <i class="fa fa-bars"></i>
+                </button>
+                <!-- <a class="navbar-brand" href="index.html">Start Bootstrap</a> -->
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-left">
+                    <li>
+                        <a style="font-size:25px;" href="instructions.html">Home</a>
+                    </li>
+                    <li>
+                        <a style="font-size:25px;" href="about.html">About</a>
+                    </li>
+                    <li>
+                        <a style="font-size:25px;" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header class="intro-header" style="background-image: url('img/cs_main2.jpg'); background-repeat: repeat-x ;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1>HelixTrans Class</h1>
+                        <h2 class="subheading">Simple information what function of this class does</h2>
+                    <!--    <span class="meta">Posted by <a href="#">Start Bootstrap</a> on August 24, 2014</span> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Post Content -->
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+                  <h2 class="section-heading">General Information</h2>
+                  <p>
+                  This is a new class which has been written to make easy usage of VXLite and CMS vertex fitters.
+                  It also can transform track helix parameters from CMS format into ZEUS format.
+                  This class basically consist of two files:
+                  <blockquote>
+                    Demo/DemoAnalyzer/src/HelixTransClass.cxx
+                    Demo/DemoAnalyzer/include/HelixTransClass.h
+                  </blockquote>
+                  One can study HelixTransClass.cxx  file to understand what this class can do, in details.
+                 </p>
+
+                 <h2 class="section-heading">Class function description</h2>
+                 Let say you create class object as HelixTrans ZeusVertexFit(false);
+
+                 <p>Set track Builder: <blockquote>  ZeusVertexFit.SetBuilder(theB); </blockquote></p>
+                 <p>Set magnetic field: <blockquote>  ZeusVertexFit.SetMagneticField(BField); </blockquote></p>
+                 <p>Set Beam Spot Information:<blockquote>  ZeusVertexFit.SetBeamSpotInformation(beamSpotHandle_I); </blockquote></p>
+                 <p>
+                   It is used for "GetTracksNotFromPVs" function. Can use on input user defined track collection:
+                   <blockquote>  ZeusVertexFit.SetGeneralTrackCollection(AllgenralTracks); </blockquote></p>
+
+                 <p> Set tracks from PV only here:
+                    <blockquote>
+                    vector<TransientTrack> tracksFromPVcheck =  ZeusVertexFit.GetTracksFromPV(ite); <br>
+                    ZeusVertexFit.SetTrackCollectionForAlgorithm(tracksFromPVcheck); <br>
+                    ZeusVertexFit.SetTrackCollectionToFit(mytracks); <br>
+                    </blockquote>
+
+                 </p>
+
+                 <p> <strong>Use the CMS or VXLite fitters: </strong>
+                    <blockquote>
+                      vector <double> VtxParametersZEUScheck; <br>
+                      VtxParametersZEUScheck = ZeusVertexFit.SimpleFitWithFitterCMS(mytracks, ite, false); <br>
+                      VtxParametersZEUScheck = ZeusVertexFit.SimpleFitWithVxlite(mytracks, ite, false); <br>
+                    </blockquote>
+                  VtxParametersZEUScheck contains complete set of parameters of the fitted vertex.
+                  Detailed description of such paramters can be founded in HelixTransClass.cxx, in function SimpleFitWithFitterCMS.
+                  <br> <br>
+                  <span class="color-blue"> Look! </span> Example of such class usage is present in the DemoAnalyzer.cc file, starts at the 2140 line.
+                 </p>
+
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+                    <p class="copyright text-muted">Copyright © Nazar Stefaniuk </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="libs/js/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="libs/js/bootstrap.min.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="libs/js/jqBootstrapValidation.js"></script>
+    <script src="libs/js/contact_me.js"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="libs/js/clean-blog.min.js"></script>
+
+
+
+
+</body></html>
