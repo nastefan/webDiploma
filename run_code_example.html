@@ -33,25 +33,21 @@
                     <span class="sr-only">Toggle navigation</span>
                     Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="index.html">Start Bootstrap</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="run_analysis.html">Home</a>
-                    </li>
-                    <li>
-                        <a href="about.html">About</a>
-                    </li>
-                    <li>
-                        <a href="post.html">Sample Post</a>
-                    </li>
-                    <li>
-                        <a href="contact.html">Contact</a>
-                    </li>
-                </ul>
+              <ul class="nav navbar-nav navbar-left">
+                  <li>
+                      <a style="font-size:25px;" href="run_analysis.html">Home</a>
+                  </li>
+                  <li>
+                      <a style="font-size:25px;" href="about.html">About</a>
+                  </li>
+                  <li>
+                      <a style="font-size:25px;" href="contact.html">Contact</a>
+                  </li>
+              </ul>
             </div>
             <!-- /.navbar-collapse -->
         </div>
@@ -79,9 +75,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <p>This page will show step by step procedure of the differential cross section plots production.
-                    The first point of the procedure is input as root miniNTuples from Danny. See miniNTuple reproduction here. (to all later).
-                    The last point is completely ready cross section plots.
+                    <p>This page will show step by step procedure of the differential cross section plots production as an example.
+                    To produce all dimuon or secondary vertices distributions one should make similar steps as described
+                    in the "General procedure" part below, but with relevant scripts which one can find at the autoscripts folder.
                     </p>
 
                     <h2 class="section-heading"> General procedure </h2>
@@ -92,10 +88,10 @@
                       sh run_all_years.sh
                     </blockquote>
 
-                    <p><strong>  2. </strong> Combined script which creates <br> "mini_HeraII_0307p_Data_MC_xsec2_Finalversion_dbothistos_dimuon" folder at the
-                      $GUTANADIR, extract all needed histograms from /data and /mc and crete  4 folders :"mini_HeraII_0*_Data_MC_Dimuon_Finalversion_XsectionTotal2_*_dbothistos".
+                    <p><strong>  2. </strong> Combined script which creates <br> "mini_HeraII_0307p_Data_MC_xsec2_Finalversion_dbothistos_dimuon"  folder at the <br>
+                      $GUTANADIR, extract all needed histograms from data and mc folders and crete  4 folders : <br> <blockquote> "mini_HeraII_0*_Data_MC_Dimuon_Finalversion_XsectionTotal2_*_dbothistos".</blockquote>
                       In each folder root files with histograms are stored. Then from 4 folders those files are moved into "mini_HeraII_0307p_Data_MC_xsec2_Finalversion_dbothistos_dimuon".
-                      In this folder root files are merged. Next part - extraction txt files from the merged root files. From the text files there is the possbility to produce
+                      <br> In this folder root files are merged. Next part - extraction txt files from the merged root files. <br><br>From the text files there is the possbility to produce
                       cross section plots with using the script "Crosssection_Extraction.C".
                     </p>
                     <blockquote>
@@ -191,7 +187,7 @@
                             </a>
                         </li>
                     </ul>
-                    <p class="copyright text-muted">Copyright © nastefan </p>
+                    <p class="copyright text-muted">Copyright © Nazar Stefaniuk </p>
                 </div>
             </div>
         </div>

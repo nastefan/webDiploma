@@ -1,0 +1,279 @@
+<html lang="en"><head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Open DATA project</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="libs/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Theme CSS -->
+    <link href="libs/css/clean-blog.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="libs/css/customstyle.css" rel="stylesheet" type="text/css">
+    <link href="libs/css/font-awesome.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    Menu <i class="fa fa-bars"></i>
+                </button>
+                <!-- <a class="navbar-brand" href="index.html">Start Bootstrap</a> -->
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-left">
+                    <li>
+                        <a style="font-size:25px;" href="run_analysis.html">Home</a>
+                    </li>
+                    <li>
+                        <a style="font-size:25px;" href="about.html">About</a>
+                    </li>
+                    <li>
+                        <a style="font-size:25px;" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header class="intro-header" style="background-image: url('img/cs_main2.jpg'); background-repeat: repeat-x ;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1>Open DATA project</h1>
+                        <h2 class="subheading">general, latest code related to my studies</h2>
+                    <!--    <span class="meta">Posted by <a href="#">Start Bootstrap</a> on August 24, 2014</span> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Post Content -->
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+                  <h2 class="section-heading">General Information</h2>
+<p>
+                  This page is going to show you how to install recent code which was
+                  used by myself for the CMS Open data studies. Below you can check what is new here.
+                  This instruction should help you to install the code (<span style="text-decoration: line-through;">which is do not really hard </span>)
+                  and mainly explain how to deal with external vertex fitter package
+                  <span class="color-blue">VXLite </span>.
+</p>
+
+
+                  <h2 class="section-heading">What is new</h2>
+<p>
+                  Well, you already know that most important file is  <span class="color-blue">"DemoAnalyzer.cc"</span>.
+                  The structure of this file is very similar to the one which was prepared by Irene Dutta
+                  and Bridget Sheeran and basically is based on it. It has few addons which might be
+                  useful to have a look. There are :
+                  <blockquote>  trainsition tracks usage</blockquote>
+                  <blockquote>  CMS/VXLite vertex fitter usage</blockquote>
+                  <blockquote>  CMS -> ZEUS helix parameters transformation tools </blockquote>
+                  <blockquote>  connection between track and muon objects via C++ pointer </blockquote>
+                    <blockquote> differrent mother particle position selection, based on
+                  its vertex reconstruction but not on the approximate values extracted from daughter tracks. </blockquote>
+                    And more small improvements which you might want to investigate by yourself.
+</p>
+
+                    <h2 class="section-heading">Install code</h2>
+                    <p> At this stage I assumed that you have already installed virtual box and CMS Open Data virtual machine.
+                    If not, please have a look <a class="color-downloads" target="_blank" href="http://opendata.cern.ch/VM/CMS" >here</a>
+                    and install it to continue with the following instructions.
+                    </p>
+
+                    <h2 class="section-heading">Current environment setup</h2>
+                    <p> Knowledge about environment setup which was used for this instructions is important and the following instructions should work fine with that.
+                      <blockquote>
+                        CMS machine version:   <span class="color-blue">CMS-Open-Data-1.2.0 </span> <br>
+                        CMS release version:   <span class="color-blue">CMSSW_5_3_32 </span> <br>
+                        Open Data year of:   <span class="color-blue">2011 </span> <br>
+                      </blockquote>
+                    </p>
+                    <h2 class="section-heading">Prepare release</h2>
+                    <p>
+                      Now inside VM (CMS Virtual mashine) one should create CMSSW release.
+                      Explanations how to do that are presented <a class="color-downloads" target="_blank" href="http://opendata.cern.ch/VM/CMS">here</a>.
+                      The main scope of commands is:
+                      <blockquote>
+                        cmsrel CMSSW_5_3_32 <br>
+                        cd CMSSW_5_3_32/src/ <br>
+                        cmsenv <br>
+                        mkdir Demo <br>
+                        cd Demo <br>
+                        mkedanlzr DemoAnalyzer <br>
+                        cd DemoAnalyzer <br>
+                        scram b <br>
+                      </blockquote>
+
+                      Please make sure that on this stage everything is fine and works without errors. <br>
+                      Let's continue!
+                      </p>
+
+                      <h2 class="section-heading">Install latest code</h2>
+<p>                        Lets download latest code from <a class="color-downloads" href="download/CMSSW_5_3_32_latestwork-master.zip" download> here</a>.
+                        This is "zip" archive which has file structure similar to the CMSSSW release. Extract archive. Look at the Demo folder.
+                        At this stage you already have your CMSSW_5_3_32 release with "Demo" folder inside. Change/add all relevant folders and files into
+                        your <span class="color-blue">CMSSW_5_3_32/src/Demo/DemoAnalyzer/</span> folder from the
+                          <span class="color-blue">"CMSSW_5_3_32_latestwork-master/Demo/DemoAnalyzer/"</span> archive.
+                        <br>
+                        <br>
+
+                        Now let's extract data-name files, fast run file (run.sh) and INFO.txt (how to make global tag links).
+                        Put all files from the  <span class="color-blue">CMSSW_5_3_32_latestwork-master </span> into your <span class="color-blue">CMSSW_5_3_32/src</span>.
+                        <br> <br>
+                        One needs to setup <span class="color-blue">Demo/DemoAnalyzer/demoanalyzer_cfg.py </span> file (check all paths inside it).
+</p>
+
+                      <h2 class="section-heading">Integrate VXLite package into CMSSW</h2>
+<p>
+                        After careful copy of all relevant files and folders, try to compile again (scram b).
+                        Most probably you will get an error message:
+
+                      <blockquote>
+                        ... <br>
+                        cannot find -lDAFVertexFinder <br>
+                        ... <br>
+                        cannot find -lVertexFitter  <br>
+                        ... <br>
+                      </blockquote>
+</p>
+<p>
+                      That is because one needs to properly setup <span class="color-blue"> vxlite</span> package.  Do the following: <br>
+
+                      <blockquote>
+                      cd Demo/DemoAnalyzer/interface  <br>
+                      sh makesSL6.sh  <br>
+                      cd ../../../  <br>
+                      scram b  <br>
+                      </blockquote>  <br>
+
+                      Now compilation process should run without any errors and VXLite package has been successfully integrated into your CMSSW release.
+                      <span class="color-downloads"> Important!</span> In case you run the command "scram b clean" setup of
+                      <span class="color-blue"> vxlite</span> is needed again.
+</p>
+                      <h2 class="section-heading">Code structure</h2>
+                      <br>
+                      <h4 class="color-blue">  VXLite </h4>
+                      <blockquote> Demo/DemoAnalyzer/interface </blockquote>
+                      Contains VXLite package. As already stated above it has "makesSL6.sh" script which
+                      compile and connect important libaries to use later.
+<p>
+<blockquote>
+                      g++ -fPIC -o DAFVertexFinder.so -c vxlite/DAFVertexFinder.cc <br>
+                      g++ -shared -Wl,-soname, -o libDAFVertexFinder.so DAFVertexFinder.so libtLite.a <br>
+
+                      g++ -fPIC -o VertexFitter.so -c vxlite/VertexFitter.cc <br>
+                      g++ -shared -Wl,-soname, -o libVertexFitter.so VertexFitter.so libtLite.a <br>
+</blockquote>
+</p>
+<p>
+                      <span class="color-downloads"> Important!</span>
+                      These commands does not depend from the CMSSW release. One can use it on any linux based machine with g++ compiler.
+                      They will produce 2 libraries (<span class="color-blue">libDAFVertexFinder.so and libVertexFitter.so</span> ) which
+                      can be included into any C++ program, and does not depend from CMSSW release as well. This might be useful
+                      in case one needs to use VXLite package for his own C++ programs. Usually it may be included in such way:
+
+                      <blockquote> gcc  myprogram.C -o VertexFitter.so </blockquote>
+
+                      But one needs to check this command because this instructions
+                      here are written in respect to the CMSSW CMS release usage.
+</p>
+                      <h4 class="color-blue">  HelixTransClass </h4>
+<p>
+                      This is a new class which has been written to make easy usage of VXLite and CMS vertex fitters.
+                      It also transforms track helix parameters from CMS format into ZEUS format.
+                      Usage example if this class with explanation step-by-step is
+                      <a class="color-downloads" href="opendata_gen.html" > here (not ready yet)</a>,
+                      while in this part one shoud admit important files and where the are placed:
+
+                      <blockquote>
+                        Demo/DemoAnalyzer/src/HelixTransClass.cxx
+                        Demo/DemoAnalyzer/include/HelixTransClass.h
+                      </blockquote>
+
+                      Presentation with Open data analysis may be downloaded
+                      <a class="color-downloads" href="download/SecondaryVtxStudy.pdf" download> here</a>.
+</p>
+
+                      <h2 class="section-heading">Run the code now!</h2>
+                      <br>
+                      Go to your CMSSW_5_3_32/src folder. Make sure you did "cmsenv" here. Run:
+                      <p>
+
+                        <blockquote>
+                          cmsRun Demo/DemoAnalyzer/demoanalyzer_cfg.py
+                        </blockquote>
+                      </p>
+
+
+                      <h2 class="section-heading">Short output description</h2>
+                      <p>
+                       An output will come usual root file. Inside it there is "PrVertex"
+                       folder which contain information about ZEUS and CMS primary vertex fit results.
+                       The rest structure is the same as for base code version.
+                       It has Tracks , Muons, Electrons, B-, J/Psi-mesons information so on.
+                      </p>
+
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+                    <p class="copyright text-muted">Copyright © Nazar Stefaniuk </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="libs/js/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="libs/js/bootstrap.min.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="libs/js/jqBootstrapValidation.js"></script>
+    <script src="libs/js/contact_me.js"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="libs/js/clean-blog.min.js"></script>
+
+
+
+
+</body></html>

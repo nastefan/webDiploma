@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Student Diaries</title>
+    <title>Open DATA project</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="libs/css/bootstrap.min.css" rel="stylesheet">
@@ -15,6 +15,7 @@
     <link href="libs/css/clean-blog.min.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
+    <link href="libs/css/customstyle.css" rel="stylesheet" type="text/css">
     <link href="libs/css/font-awesome.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
@@ -24,7 +25,7 @@
 <body>
 
     <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-custom navbar-fixed-top is-fixed">
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header page-scroll">
@@ -56,48 +57,55 @@
 
     <!-- Page Header -->
     <!-- Set your background image for this header on the line below. -->
-    <header class="intro-header" style="background-image: url('img/home-bg.jpg')">
+    <header class="intro-header" style="background-image: url('img/cs_main2.jpg'); background-repeat: repeat-x ;">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <div class="site-heading">
-                        <h1>Technical info</h1>
-                        <hr class="small">
-                        <span class="subheading">Notes by Nazar Stefaniuk</span>
+                    <div class="post-heading">
+                        <h1>MC true level tools</h1>
+                        <h2 class="subheading">  Contains all code related to the MC studies</h2>
+                    <!--    <span class="meta">Posted by <a href="#">Start Bootstrap</a> on August 24, 2014</span> -->
                     </div>
                 </div>
             </div>
         </div>
     </header>
-    <!-- Main Content -->
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="post-preview">
-                    <a href="post1.html" target="">
-                        <h2 class="post-title">
-                            Setup the code
-                        </h2>
-                        <h3 class="post-subtitle">
-                            Step by step manual how to setup and run the code.
-                        </h3>
-                    </a>
-                </div>
 
-                <div class="post-preview">
-                    <a href="useful_commands.html" target="">
-                        <h2 class="post-title">
-                            Useful commands
-                        </h2>
-                        <h3 class="post-subtitle">
-                            Contain some useful commands which are not really obvious.
-                        </h3>
-                    </a>
+    <!-- Post Content -->
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+                  <h2 class="section-heading">General Information</h2>
+                  <br>
+                  This page presents source code with some special and standard features
+                  of the MC data. Code download
+                  <a class="color-downloads" target="_blank" href="download/MC_example_2011_openData.zip" download>here</a>.
+
+
+
+                  <h2 class="section-heading">What is new</h2>
+<p>
+                  The program has possibilities:
+<blockquote>
+                  -- extract and loop over all gen particles; <br>
+                  -- identify gen particles by id  <br>
+                  -- extract complete set of parameters for the gen particle (p, Eta, Phi, so on)  <br>
+                  -- follow complete decay chain (find the daughter/mother of the gen particle and decay status)  <br>
+                  -- this program I've checked on 2011 VM and it works well with 2011 MC samples.  <br>
+                  -- since this is done for 2011 , release is CMSSW_5_3_32.  <br>
+                  -- show complete true decay information in the table/chain format.  <br>
+</blockquote>
+
+                  More information in presentation <a class="color-downloads" target="_blank" href="main.html" >here</a>.
+
+</p>
+
                 </div>
-                <hr>
             </div>
         </div>
-    </div>
+    </article>
 
     <hr>
 
@@ -106,12 +114,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <p class="copyright text-muted">Copyright © nastefan </p>
+
+                    <p class="copyright text-muted">Copyright © Nazar Stefaniuk </p>
                 </div>
             </div>
         </div>
     </footer>
-
 
     <!-- jQuery -->
     <script src="libs/js/jquery.min.js"></script>

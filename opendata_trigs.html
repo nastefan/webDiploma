@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Useful commands</title>
+    <title>Open DATA project</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="libs/css/bootstrap.min.css" rel="stylesheet">
@@ -33,21 +33,22 @@
                     <span class="sr-only">Toggle navigation</span>
                     Menu <i class="fa fa-bars"></i>
                 </button>
+                <!-- <a class="navbar-brand" href="index.html">Start Bootstrap</a> -->
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-              <ul class="nav navbar-nav navbar-left">
-                  <li>
-                      <a style="font-size:25px;" href="run_analysis.html">Home</a>
-                  </li>
-                  <li>
-                      <a style="font-size:25px;" href="about.html">About</a>
-                  </li>
-                  <li>
-                      <a style="font-size:25px;" href="contact.html">Contact</a>
-                  </li>
-              </ul>
+                <ul class="nav navbar-nav navbar-left">
+                    <li>
+                        <a style="font-size:25px;" href="run_analysis.html">Home</a>
+                    </li>
+                    <li>
+                        <a style="font-size:25px;" href="about.html">About</a>
+                    </li>
+                    <li>
+                        <a style="font-size:25px;" href="contact.html">Contact</a>
+                    </li>
+                </ul>
             </div>
             <!-- /.navbar-collapse -->
         </div>
@@ -61,8 +62,8 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="post-heading">
-                        <h1>Useful commands</h1>
-                        <h2 class="subheading">Contain some not obvious useful commands </h2>
+                        <h1>Trigger example</h1>
+                        <h2 class="subheading">Contains trigger example (simple version)</h2>
                     <!--    <span class="meta">Posted by <a href="#">Start Bootstrap</a> on August 24, 2014</span> -->
                     </div>
                 </div>
@@ -75,37 +76,17 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    Here one can find some useful commans which will help in the analysis.
 
-                    <h2 class="section-heading"> (Re) Compilation </h2>
-                    <blockquote>
-                      cd $GUTCODEDIR/scripts-analysis <br>
-                      ./compile <br>
-                      ./recompile <br>
-                      cat $GUTCODEDIR/log/latest.txt | grep error <br>
-                      cat $GUTCODEDIR/log/latest.txt | grep ERROR <br>
-                    </blockquote>
-                    <p>Since compilation procedure contains a lot of log information, two last commands above will help to controll an errors. </p>
-
-                    <h2 class="section-heading"> Link the code to the miniNTuple files </h2>
-                    <blockquote>
-                      cd $GUTCODEDIR/datadir<br>
-                      sh createdata_links.sh <br>
-                    </blockquote>
-                    <p>This script will create correct links to make all machinery run in the correct way. </p>
-
-                    <h2 class="section-heading"> Clean all root files from the anadir </h2>
-                    <blockquote>
-                      cd $GUTANADIR/<br>
-                      sh cleanall.sh <br>
-                    </blockquote>
-                    <p>This script will delete all root files from the anadir folder, and from /data and /mc folders.
-		    <span style="color:red;"> Warning!</span> Use this script with careful. This will remove your current nextTominiRoot files, so
-	 	    you will need to run the script "run_all_years.sh" again. But all folders which are produced by the "finilazer_dimuon.sh" script,
-			for example, will be untached. </p>
-
+                  <h2 class="section-heading">General Information</h2>
+                  <br>
+                  This page presents source code with basic triggers study.
+                  This example is standalone   <br> simple example, which shows only trigger usage. In this case  HLT trigers.
+                  <br>
                     <br>
-                    <br>
+                  Download <a class="color-downloads" target="_blank" href="download/OpenDataTriggers-master.zip" download>here</a>.
+                  <br>
+                  <br>
+
                 </div>
             </div>
         </div>
@@ -118,6 +99,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
                     <p class="copyright text-muted">Copyright © Nazar Stefaniuk </p>
                 </div>
             </div>
